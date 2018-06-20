@@ -5,7 +5,11 @@
 
 // load manifests
 // scripts
+<<<<<<< 44988aa290b0564942480e0394352f6bc26f43a2
 require('./assets/scripts/assets')
+=======
+require('./assets/scripts/index.js')
+>>>>>>> Initial commit: clean broswer template
 
 // styles
 require('./assets/styles/index.scss')
