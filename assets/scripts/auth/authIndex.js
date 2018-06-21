@@ -1,5 +1,5 @@
 'use strict'
-const events = require('../scripts/auth/events')
+const events = require('./authEvents')
 
 $(() => {
   $('#sign-up').on('submit', events.onSignup)
