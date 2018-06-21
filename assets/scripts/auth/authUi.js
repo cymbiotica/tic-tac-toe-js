@@ -1,5 +1,5 @@
 'use strict'
-const store = require('../store')
+const store = require('../utility/userStore')
 
 // const onSuccess = function (callingMethod) {
 //   $('#message').text(`${callingMethod} has run successfully.`)

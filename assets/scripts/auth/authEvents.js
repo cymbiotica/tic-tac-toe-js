@@ -1,8 +1,8 @@
 'use strict'
 const getFormFields = require('../../../lib/get-form-fields') // supplied module from GA
-const api = require('./api')                                  // our user api
-const ui = require('./ui')                                    // user UI updates
-const store = require('../store')                             // store object for our logged in uer(s) TODO: add seconday for player 2
+const api = require('./authApi')                                  // our user api
+const ui = require('./authUi')                                    // user UI updates
+const store = require('../utility/userStore')                             // store object for our logged in uer(s) TODO: add seconday for player 2
 
 // sign up for a single user
 // @param event is the click event from the submit button
