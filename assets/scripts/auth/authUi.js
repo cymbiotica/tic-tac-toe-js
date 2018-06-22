@@ -10,7 +10,7 @@ const store = require('../utility/userStore')
 const onSignUpSuccess = function (data) {
   $('#message').text('Signed up successfully.')
   $('#message').css('background-color', 'green')
-  console.log('onSignUpSuccess ran, Data returned is: ' + data)
+  console.log(`onSignUpSuccess ran, Data returned is: ${data}`)
 }
 
 const onSignUpFailure = function (error) {
@@ -22,7 +22,7 @@ const onSignUpFailure = function (error) {
 const onSignInSuccess = function (data) {
   $('#message').text('Signed in successfully.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
-  // console.log('onSignInSuccess ran, Data returned is: ' + data)
+  console.log('onSignInSuccess ran, Data returned is: ' + data.user)
 
   store.user = data.user
 }
@@ -34,6 +34,7 @@ const onSignInFailure = function (error) {
 }
 
 const onChangePasswordSuccess = function (data) {
+  debugger
   $('#message').text('Changed password successfully.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
   console.log('onChangePasswordSuccess ran, Data returned is: ' + data)
