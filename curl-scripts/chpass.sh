@@ -8,7 +8,7 @@
 #       "new": "'"${NEW_PASSWORD}"'"
 #     }
 #   }'
-curl --include --request PATCH http://tic-tac-toe.wdibos.com/change-password/${ID} \
+curl --include --request PATCH https://tic-tac-toe-wdi.herokuapp.com/change-password/ \
   --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{

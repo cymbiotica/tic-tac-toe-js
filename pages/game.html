@@ -10,8 +10,9 @@
       <!-- Do not add `script` tags-->
       <script src="../public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="../public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="../assets/scripts/game/xsie-osies.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body onload="drawBoard()">
       <header>Tic-Tac-Toe-JS</header>
 
       <nav id="left-nav-bar">
@@ -26,13 +27,13 @@
           Wiki stuff here
         </p>
       </aside>
-      <main class="game-board">
-        Draw game here. Are we going to use a grid, an array of divs?
-      </main>
+      <main id="game-board" class="border"></main>
 
       <footer>
         Created by Terry Esposito &C2018
       </footer>
+
+     
     </body>
     </html>
     

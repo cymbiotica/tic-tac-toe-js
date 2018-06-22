@@ -12,6 +12,7 @@ const getTemplateAjax = function (path) {
       $('main-content').html(template)
     }
   })
+//  .then(drawHTML)
 }
 
 module.exports = {
