@@ -9,7 +9,7 @@ const getTemplateAjax = function (path) {
     success: function () {
       source = path.slice((path.lastIndexOf('/') + 1), path.length)
       template = Handlebars.compile(source)
-      $('main-content').html(template)
+      $('#main-content').html(template)
     }
   })
 //  .then(drawHTML)

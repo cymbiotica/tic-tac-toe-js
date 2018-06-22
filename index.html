@@ -18,26 +18,30 @@
         <a href="./pages/game.html" id="game">Game</a>
         <a href="./pages/admin.html" id="admin">Player Admin</a>
       </nav>
-      <main class="main-content">
-          <div class="greeting border">
-              <h1>Would you like to play a game?</h1>
-            <nav class="war-game">
-              <p><a href="#">Chess</a></p>
-              <p><a href="#">Poker</a></p>
-              <p><a href="#">Fighter Combat</a></p>
-              <p><a href="#">Guerilla Engagement</a></p>
-              <p><a href="#">Desert Warfare</a></p>
-              <p><a href="#">Air-To-Ground Action</a></p>
-              <p><a href="#">Theatre Wide Tactical Warfare</a></p>
-              <p><a href="#">Theaterwide Biotioxic and Checmical Warfare</a></p>
-              <p><a href="#">Guild Battleground Skirmish</a></p>
-              <p><a href="#">Global Thermonuclear War</a></p>
-            </nav>
-            </div>
-      </main>
+      <main id="main-content"></main>
       <footer>
           Created by Terry Esposito &C2018
         </footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"  type="text/javascript"></script>
-    </body>
+
+      </body>
+
+    <!-- BEGIN Main template-->
+    <script id="main-template" type="text/x-handlebars-template">
+      <div class="greeting border">
+          <h1>{{greeting}}</h1>
+          <nav class="war-game">
+            <p><a href="#">Chess</a></p>
+            <p><a href="#">Poker</a></p>
+            <p><a href="#">Fighter Combat</a></p>
+            <p><a href="#">Guerilla Engagement</a></p>
+            <p><a href="#">Desert Warfare</a></p>
+            <p><a href="#">Air-To-Ground Action</a></p>
+            <p><a href="#">Theatre Wide Tactical Warfare</a></p>
+            <p><a href="#">Theaterwide Biotioxic and Checmical Warfare</a></p>
+            <p><a href="#">Guild Battleground Skirmish</a></p>
+            <p><a href="#">Global Thermonuclear War</a></p>
+          </nav>
+        </div>
+    </script>
+    <!-- END Main template-->
 </html>
