@@ -10,7 +10,6 @@ const signUp = function (data) {
   })
 }
 const signIn = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -18,8 +17,6 @@ const signIn = function (data) {
   })
 }
 const changePassword = function (data) {
-  // debugger
-  // console.log('data when changePassword is called' + data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',

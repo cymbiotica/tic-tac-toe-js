@@ -15,17 +15,19 @@
       <header>Tic-Tac-Toe-JS</header>
 
     <nav id="left-nav-bar">
-        <a href="./pages/game.html" id="game">Game</a>
-        <a href="./pages/admin.html" id="admin">Player Admin</a>
+        <button id="game">Game</button>
+        <button id="admin">Admin</button>
       </nav>
+
       <main id="main-content"></main>
+
       <footer>
           Created by Terry Esposito &C2018
         </footer>
 
       </body>
 
-    <!-- BEGIN Main template-->
+    <!-- BEGIN Main template -->
     <script id="main-template" type="text/x-handlebars-template">
       <div class="greeting border">
           <h1>{{greeting}}</h1>
@@ -43,5 +45,19 @@
           </nav>
         </div>
     </script>
-    <!-- END Main template-->
+    <!-- END Main template -->
+
+    <!-- BEGIN Game Template -->
+    <script id="game-template" type="text/x-handlebars-template">
+    <aside class="information">
+      <p class="instruction">
+        Instructions here
+      </p>
+      <p class="history">
+        Wiki stuff here
+      </p>
+    </aside>
+    <main id="game-board" class="border" onload="drawBoard()"></main>
+  </script>
+  <!-- END Game Template -->
 </html>

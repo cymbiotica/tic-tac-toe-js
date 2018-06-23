@@ -6,8 +6,7 @@
 // load manifests
 // scripts
 require('./assets/scripts/index.js')
-require('./assets/scripts/utility/changeContent')
-require('./assets/scripts/game/showMain')
+require('./assets/scripts/templates/helpers/getTemplates')
 require('handlebars')
 
 // styles
