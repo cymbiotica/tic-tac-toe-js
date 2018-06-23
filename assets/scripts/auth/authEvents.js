@@ -10,7 +10,6 @@ const store = require('../utility/userStore')                             // sto
 const onSignup = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
@@ -28,8 +27,7 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
   // store our user in a object available to the app
   store.user = data.user
-  console.log(store.user)
-  debugger
+  
 }
 
 // change password for a single user
@@ -38,7 +36,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-debugger
+
   api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
