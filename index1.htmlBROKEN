@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe-JS</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>Tic-Tac-Toe-JS</header>
+
+    <nav id="left-nav-bar">
+        <button id="game">Game</button>
+        <button id="admin">Admin</button>
+      </nav>
+
+      <main id="main-content"></main>
+
+      <footer>
+          Created by Terry Esposito &C2018
+        </footer>
+
+      </body>
+
+    <!-- BEGIN Main template -->
+    <script id="main-template" type="text/x-handlebars-template">
+      <div class="greeting border">
+          <h1>{{greeting}}</h1>
+          <nav class="war-game">
+            <p><a href="#">Chess</a></p>
+            <p><a href="#">Poker</a></p>
+            <p><a href="#">Fighter Combat</a></p>
+            <p><a href="#">Guerilla Engagement</a></p>
+            <p><a href="#">Desert Warfare</a></p>
+            <p><a href="#">Air-To-Ground Action</a></p>
+            <p><a href="#">Theatre Wide Tactical Warfare</a></p>
+            <p><a href="#">Theaterwide Biotioxic and Checmical Warfare</a></p>
+            <p><a href="#">Guild Battleground Skirmish</a></p>
+            <p><a href="#">Global Thermonuclear War</a></p>
+          </nav>
+        </div>
+    </script>
+    <!-- END Main template -->
+
+    <!-- BEGIN Game Template -->
+    <script id="game-template" type="text/x-handlebars-template">
+    <aside class="information">
+      <p class="instruction">
+        Instructions here
+      </p>
+      <p class="history">
+        Wiki stuff here
+      </p>
+    </aside>
+    <main id="game-board" class="border" onload="drawBoard()"></main>
+  </script>
+  <!-- END Game Template -->
+</html>
