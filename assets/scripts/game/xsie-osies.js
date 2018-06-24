@@ -4,6 +4,7 @@ const SIZE = 3
 
 const drawBoard = function () {
   const parent = document.querySelector('#game-board')
+  debugger
   let drawRow
   let drawColumn
   for (let rows = 0; rows < SIZE; rows++) {

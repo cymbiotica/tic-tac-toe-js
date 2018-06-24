@@ -8,6 +8,7 @@
 require('./assets/scripts/index.js')
 require('./assets/scripts/templates/helpers/getTemplates')
 require('handlebars')
+require('./assets/scripts/game/xsie-osies')
 
 // styles
 require('./assets/styles/index.scss')
