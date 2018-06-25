@@ -1,9 +1,9 @@
 const Handlebars = require('handlebars')
 // const templates = require('../precompiled/templates.js')
 const allTtemplates = {
-  mainTemplate: Handlebars.templates['main-template'],
-  gameTemplate: Handlebars.templates['game-template'],
-  adminTemplate: Handlebars.templates['admin-template']
+  mainTemplate: Handlebars.templates['mainCard'],
+  gameTemplate: Handlebars.templates['gameCard'],
+  adminTemplate: Handlebars.templates['adminCard']
 }
 
 function getTemplate() {

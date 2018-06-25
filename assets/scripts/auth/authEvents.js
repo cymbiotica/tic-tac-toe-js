@@ -1,4 +1,4 @@
-'use strict'
+
 const getFormFields = require('../../../lib/get-form-fields') // supplied module from GA
 const api = require('./authApi')                                  // our user api
 const ui = require('./authUi')                                    // user UI updates
@@ -11,7 +11,7 @@ const onSignup = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.signUp(data)
-    .then(ui.onSignUpSuccess)
+    .then(ui.onSuccess)
     .catch(ui.onSignUpFailure)
 }
 
