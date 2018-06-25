@@ -1,46 +1,44 @@
 const Handlebars = require('handlebars')
-// const mainTemplate = $('#main-template').html()
-// const gameTemplate = $('game-template').html()
-// const adminTemplate = $('#admin-template').html()
-const templates = {
-  mainTemplate: $('#main-template').html(),
-  gameTemplate: $('game-template').html(),
-  adminTemplate: $('#admin-template').html()
+// const templates = require('../precompiled/templates.js')
+const allTtemplates = {
+  mainTemplate: Handlebars.templates['main-template'],
+  gameTemplate: Handlebars.templates['game-template'],
+  adminTemplate: Handlebars.templates['admin-template']
 }
 
-function getTemplate () {
+function getTemplate() {
   let template
   let context
-  console.log(templates.mainTemplate)
-  console.log(templates.gameTemplate)
-  switch (templates) {
-    case templates.mainTemplate:
-      template = templates.mainTemplate
+  console.log(allTtemplates.mainTemplate)
+  debugger
+  switch (allTtemplates) {
+    case allTtemplates.mainTemplate:
+      template = allTtemplates.mainTemplate
       console.log(`template at mainTemplate = ${template}`)
       context = {
         'greeting': 'Would you like to Play a Game?'
       }
       break
-    case templates.gameTemplate:
-      template = templates.gameTemplate
+    case allTtemplates.gameTemplate:
+      template = allTtemplates.gameTemplate
       console.log(`template at gameTemplate = ${template}`)
       context = {}
       break
     default:
-      template = templates.adminTemplate
+      template = allTtemplates.adminTemplate
       console.log(`template at adminTemplate = ${template}`)
       context = {}
       break
   }
 
   // Compile the template
-  const templateToCompile = Handlebars.compile(template)
+  // const templateToCompile = Handlebars.compile(template)
 
   // Pass our data to the template
-  const templateHTML = templateToCompile(templateToCompile)
+  // const templateHTML = templateToCompile(templateToCompile)
 
   // Add the compiled html to the page
-  $('#main-content').html(templateHTML)
+  $('#main-content').html(template)
 }
 
 module.exports = {

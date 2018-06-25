@@ -21,38 +21,12 @@
     <a href="./main.html" id="main">Main</a>
     <a href="./admin.html" id="admin">Player Admin</a>
   </nav>
-  <aside class="information">
-    <p class="instruction">
-      Instructions here
-    </p>
-    <p class="history">
-      Wiki stuff here
-    </p>
-  </aside>
-  <main id="game-board" class="border" onload="drawBoard()"></main>
-
+  <main class="main-content"></main>
   <footer>
     Created by Terry Esposito &C2018
   </footer>
 
-  <script>
-    function drawBoard() {
-      const parent = document.getElementById('#game-board')
-      debugger
-      let drawRow
-      let drawColumn
-      for (let rows = 0; rows < SIZE; rows++) {
-        drawRow = document.createElement('tr')
-        for (let columns = 0; columns < SIZE; columns++) {
-          drawColumn = document.createElement('td')
-          drawColumn.innerHTML = 'X'
-          drawRow.appendChild(drawColumn)
-        }
-        parent.appendChild(drawRow)
-      }
-    }
-
-  </script>
-</body>
+<script src="./assets/scripts/templates/precompiled/templates.js" type="text/javascript"></script>
+ </body>
 
 </html>
