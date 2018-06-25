@@ -1,8 +1,6 @@
 'use strict'
-require('./xsie-osies')
-require('handlebars')
-const loadTemplate = require('../templates/helpers/getTemplate')
-
+const game = require('./xsie-osies')
 $(() => {
-  loadTemplate.getTemplate()
-})
+  game.drawBoard()
+}
+)

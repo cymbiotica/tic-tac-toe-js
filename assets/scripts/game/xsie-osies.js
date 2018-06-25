@@ -1,4 +1,4 @@
-'use trict'
+'use strict'
 // const config = require('../utility/gameConfig')
 const SIZE = 3
 const winners = [] // array to hold winning combinations
@@ -23,7 +23,7 @@ function loadAnswers () {
   winners.push([3, 5, 7])
 }
 
-function drawBoard() {
+const drawBoard = function () {
   const Parent = document.getElementById('game-board')
   let counter = 1
 
@@ -32,7 +32,7 @@ function drawBoard() {
   }
 
   for (let column = 0; column < SIZE; column++) {
-    const row = document.createElement('tr')
+    const draqRow = document.createElement('tr')
 
     for (let row = 0; row < 3; row++) {
       const col = document.createElement('td')
@@ -80,11 +80,11 @@ function drawBoard() {
 
       col.addEventListener('click', handler)
 
-      row.appendChild(col)
+      draqRow.appendChild(col)
       counter++
     }
 
-    Parent.appendChild(row)
+    Parent.appendChild(draqRow)
   }
 
   loadAnswers()
@@ -143,4 +143,8 @@ function reset () {
   currentPlayer = 0
   playerOneChoices = []
   playerTwoChoices = []
+}
+
+module.exports = {
+  drawBoard
 }
