@@ -83,7 +83,7 @@ module.exports = {
 
     resolve: {
       alias: {
-        handlebars: 'handlebars/dist/handlebars.js'
+        handlebars: 'handlebars/dist/handlebars.min.js'
       }
     },
     stats: {

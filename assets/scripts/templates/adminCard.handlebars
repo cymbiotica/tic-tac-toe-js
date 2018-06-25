@@ -1,0 +1,36 @@
+<div id="message"></div>
+  <form id="sign-up" class="border">
+    <fieldset>
+      <legend>Sign up</legend>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+      <input type="submit" value="Sign Up">
+    </fieldset>
+  </form>
+
+  <form id="sign-in" class="border">
+    <fieldset>
+      <legend>Sign In</legend>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="submit" value="Sign In">
+    </fieldset>
+  </form>
+
+  <form id="change-password" class="border">
+    <fieldset>
+      <legend>Change Password</legend>
+      <!-- <input type="text" name="credentials[email]" placeholder="Email"> -->
+      <input type="password" name="passwords[old]" placeholder="Old Password">
+      <input type="password" name="passwords[new]" placeholder="New Password">
+      <input type="submit" value="Change Password">
+    </fieldset>
+  </form>
+
+  <form id="sign-out" class="border">
+    <fieldset>
+      <legend>Sign out</legend>
+      <input type="submit" value="Sign Out">
+    </fieldset>
+  </form>

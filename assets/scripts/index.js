@@ -1,4 +1,5 @@
 'use strict'
+require('handlebars')
 const events = require('../scripts/auth/authEvents')
 // content loading events
 const changeView = require('../scripts/templates/helpers/getTemplate')
