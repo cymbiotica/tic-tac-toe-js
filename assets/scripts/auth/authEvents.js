@@ -11,7 +11,7 @@ const onSignup = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.signUp(data)
-    .then(ui.onSuccess)
+    .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
 }
 
@@ -20,14 +20,11 @@ const onSignup = function (event) {
 // @param this = the form data
 const onSignIn = function (event) {
   event.preventDefault()
+
   const data = getFormFields(this)
-  
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
-  // store our user in a object available to the app
-  store.user = data.user
-  
 }
 
 // change password for a single user
@@ -35,8 +32,11 @@ const onSignIn = function (event) {
 // @param this = the form data
 const onChangePassword = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
+debugger  
 
+  const data = getFormFields(this)
+  console.log('Entered into changePassword.')
+  console.log(store)
   api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
