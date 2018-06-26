@@ -1,5 +1,6 @@
 'use strict'
 const config = require('../utility/config')
+const userStore = require('../utility/userStore')
 const gameStore = require('../utility/gameStore')
 
 // The index action is a GET that retrieves all the games associated with a user.
@@ -11,19 +12,56 @@ const indexGames = function (isGameOver) {
   typeof isGameOver === 'undefined' ? gameOver = '' : gameOver = isGameOver
   return $.ajax({
     url: `${config.apiUrl}/games/${gameOver}`,
-    // config.apiUrl + '/games' + '/' + gameOver,
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + gameStore.user.token
+      Authorization: 'Token token=' + userStore.user.token
+    }
+  })
+}
+// The create action expects a POST with an empty body (e.g '' or '{}' if JSON).
+// If the request is successful, the response will have an HTTP Status of 201 Created,
+// and the body will contain JSON of the created game with player_x set to the user calling create,
+const createGame = function () {
+  return $.ajax({
+    url: `${config.apiUrl}/games/`,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + userStore.user.token
+    },
+    data: {}
+  })
+}
+const showGame = function (id) {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + userStore.user.token
     }
   })
 }
 
-const createGame = function () {
-
+const updateGame = function (id) {
+  return $.ajax({
+    url: `${config.apiUrl}/games/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + userStore.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': 0,   // example data
+          'value': 'x'  // example data
+        },
+        'over': false
+      }
+    }
+  })
 }
-
 module.exports = {
   indexGames,
-  createGame
+  createGame,
+  showGame,
+  updateGame
 }

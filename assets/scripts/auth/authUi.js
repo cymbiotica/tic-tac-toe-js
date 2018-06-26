@@ -31,6 +31,7 @@ const onSignInSuccess = function (data) {
   $('#message').css(['background-color', 'red'], ['color', 'white'])
 
   store.user = data.user
+  gameStore.user = data.user
 }
 
 const onSignInFailure = function (error) {
