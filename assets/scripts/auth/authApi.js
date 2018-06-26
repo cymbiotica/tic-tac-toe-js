@@ -10,6 +10,8 @@ const signUp = function (data) {
   })
 }
 const signIn = function (data) {
+  console.log('store value at sign in:')
+  console.log(store)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -28,7 +30,10 @@ const changePassword = function (data) {
   })
 }
 const signOut = function () {
+  console.log('store value at sign out:')
   console.log(store)
+  const store2 = store
+  console.log(store2)
   debugger
   return $.ajax({
     url: config.apiUrl + '/sign-out',

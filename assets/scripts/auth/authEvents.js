@@ -2,7 +2,6 @@
 const getFormFields = require('../../../lib/get-form-fields') // supplied module from GA
 const api = require('./authApi')                                  // our user api
 const ui = require('./authUi')                                    // user UI updates
-const store = require('../utility/userStore')                             // store object for our logged in uer(s) TODO: add seconday for player 2
 
 // sign up for a single user
 // @param event is the click event from the submit button
@@ -32,11 +31,9 @@ const onSignIn = function (event) {
 // @param this = the form data
 const onChangePassword = function (event) {
   event.preventDefault()
-debugger  
 
   const data = getFormFields(this)
   console.log('Entered into changePassword.')
-  console.log(store)
   api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)

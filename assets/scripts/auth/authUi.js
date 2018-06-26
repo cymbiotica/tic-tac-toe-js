@@ -1,5 +1,6 @@
 // 'use strict'
 const store = require('../utility/userStore')
+const gameStore = require('../utility/gameStore')
 
 // const onSuccess = function (data) {
 //   $('#message').text(`${onSuccess.caller} has run successfully.`)
@@ -30,7 +31,6 @@ const onSignInSuccess = function (data) {
   $('#message').css(['background-color', 'red'], ['color', 'white'])
 
   store.user = data.user
-  // console.log(store.user)
 }
 
 const onSignInFailure = function (error) {
