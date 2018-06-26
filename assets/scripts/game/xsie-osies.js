@@ -1,15 +1,12 @@
 'use strict'
-// const config = require('../utility/gameConfig')
+const Player = require('./Player')
+
 const SIZE = 3
 const winners = [] // array to hold winning combinations
-let playerOneChoices = []
-let playerTwoChoices = []
-let timer
-let numPLayers = 2
-let currentPlayer
-let move = 0
-let points1 = 0
-let points2 = 0
+let currentPlayer = 0
+
+const player1 = new Player.Player('player1', 0)
+const player2 = new Player.Player('player2', 1)
 
 function loadAnswers () {
   // arrays of winning combinations - straights and diangles.
@@ -24,34 +21,38 @@ function loadAnswers () {
 }
 
 const drawBoard = function () {
+  let move = 0
+  // drawing our board
   const Parent = document.getElementById('game-board')
+
+  // iterator
   let counter = 1
 
+  // clearboard
   while (Parent.hasChildNodes()) {
     Parent.removeChild(Parent.firstChild)
   }
 
+  // draw our board to the page
   for (let column = 0; column < SIZE; column++) {
-    const draqRow = document.createElement('tr')
+    const drawRow = document.createElement('tr')
 
-    for (let row = 0; row < 3; row++) {
+    for (let row = 0; row < SIZE; row++) {
       const col = document.createElement('td')
       col.id = counter
-      col.innerHTML = counter
+      col.innerHTML = '#'
 
       const handler = function (e) {
         if (currentPlayer === 0) {
           this.innerHTML = 'X'
-          playerOneChoices.push(parseInt(this.id))
-          playerOneChoices.sort(function (a, b) {
-            return a - b
-          })
+          player1.cellsClicked.push(parseInt(this.id))
+          // console.log(`Player 1 cells = ${player1.cellsClicked.length}`)
+          player1.cellsClicked.sort(function (a, b) { return a - b })
         } else {
           this.innerHTML = 'O'
-          playerTwoChoices.push(parseInt(this.id))
-          playerTwoChoices.sort(function (a, b) {
-            return a - b
-          })
+          player2.cellsClicked.push(parseInt(this.id))
+          // console.log(`Player 2 cells = ${player2.cellsClicked.length}`)
+          player2.cellsClicked.sort(function (a, b) { return a - b })
         }
 
         move++
@@ -59,12 +60,12 @@ const drawBoard = function () {
 
         if (isWin) {
           if (currentPlayer === 0) {
-            points1++
+            player1.points++
           } else {
-            points2++
+            player2.points++
           }
-          // document.getElementById("player1").innerHTML = points1
-          // document.getElementById("player2").innerHTML = points2
+          $('#playerOne').html(player1.points)
+          $('#playerTwo').html(player2.points)
 
           reset()
           drawBoard()
@@ -74,46 +75,38 @@ const drawBoard = function () {
           } else {
             currentPlayer = 0
           }
-          // this.removeEventListener('click', arguments.callee)
         }
       }
 
       col.addEventListener('click', handler)
-
-      draqRow.appendChild(col)
       counter++
+      drawRow.appendChild(col)
     }
 
-    Parent.appendChild(draqRow)
+    Parent.appendChild(drawRow)
   }
 
   loadAnswers()
 }
 
 function checkWinner () {
-  // check if current player has a winning hand
-  // only stsrt checking when player x has size number of selections
-  let win = false
+  // win condition
+  let isWin = false
+
+  // all placeholder for each players cellsClicked
   let playerSelections = []
 
-  if (currentPlayer === 0) {
-    playerSelections = playerOneChoices
-  } else {
-    playerSelections = playerTwoChoices
-  }
+  // if player is O set their cells for player1 else set for player2
+  currentPlayer === 0 ? playerSelections = player1.cellsClicked : playerSelections = player2.cellsClicked
   if (playerSelections.length >= SIZE) {
-    // check if any 'winners' are also in your selections
-
-    for (let i = 0; i < winners.length; i++) {
-      let sets = winners[i] // winning hand
+    for (let winningSet = 0; winningSet < winners.length; winningSet++) {
+      const sets = winners[winningSet] // winning hand
       let setFound = true
 
       for (let r = 0; r < sets.length; r++) {
-        // check if number is in current players hand
-        // if not, break, not winner
         let found = false
 
-        // players hand
+        // players cellsClicked
         for (let s = 0; s < playerSelections.length; s++) {
           if (sets[r] === playerSelections[s]) {
             found = true
@@ -121,7 +114,7 @@ function checkWinner () {
           }
         }
 
-        // value not found in players hand
+        // value not found in players cellsClicked
         // not a valid set, move on
         if (found === false) {
           setFound = false
@@ -130,19 +123,19 @@ function checkWinner () {
       }
 
       if (setFound === true) {
-        win = true
+        isWin = true
         break
       }
     }
   }
 
-  return win
+  return isWin
 }
 
 function reset () {
   currentPlayer = 0
-  playerOneChoices = []
-  playerTwoChoices = []
+  player1.cellsClicked = []
+  player2.cellsClicked = []
 }
 
 module.exports = {

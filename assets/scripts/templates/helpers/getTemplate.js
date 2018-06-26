@@ -1,5 +1,5 @@
 const Handlebars = require('handlebars')
-// const templates = require('../precompiled/templates.js')
+const templates = require('../precompiled/templates.js')
 const allTtemplates = {
   mainTemplate: Handlebars.templates['mainCard'],
   gameTemplate: Handlebars.templates['gameCard'],
@@ -9,8 +9,9 @@ const allTtemplates = {
 function getTemplate() {
   let template
   let context
-  console.log(allTtemplates.mainTemplate)
   debugger
+  console.log(allTtemplates.mainTemplate)
+  
   switch (allTtemplates) {
     case allTtemplates.mainTemplate:
       template = allTtemplates.mainTemplate
