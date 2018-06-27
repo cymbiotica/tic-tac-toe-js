@@ -83,11 +83,7 @@ module.exports = {
 
     resolve: {
       alias: {
-<<<<<<< 44988aa290b0564942480e0394352f6bc26f43a2
         handlebars: 'handlebars/dist/handlebars.min.js'
-=======
-        handlebars: 'handlebars/dist/handlebars.js'
->>>>>>> Initial commit: clean broswer template
       }
     },
     stats: {
