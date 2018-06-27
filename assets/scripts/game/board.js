@@ -1,6 +1,6 @@
 const gameEvents = require('../game/test/gameEvents')
 
-const updateBoard = function (cellClicked, gameStore) {
+const updateBoard = function (cellClicked) {
   const updateGameObj = {
     'game': {
       'cell': {

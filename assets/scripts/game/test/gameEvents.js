@@ -1,6 +1,4 @@
 const gameApi = require('../gameApi')
-const game = require('../xsie-osies')
-const gameStore = require('../../utility/gameStore')
 
 // console.log('sd')
 
