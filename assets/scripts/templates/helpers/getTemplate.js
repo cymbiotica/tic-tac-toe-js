@@ -9,7 +9,6 @@ const allTtemplates = {
 function getTemplate() {
   let template
   let context
-  debugger
   console.log(allTtemplates.mainTemplate)
   
   switch (allTtemplates) {
