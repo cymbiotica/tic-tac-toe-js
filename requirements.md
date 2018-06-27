@@ -20,31 +20,31 @@ Produce documentation in the form of a **README**, which must:
 1.  [X] Complete the repository `Description` field and `Website` field with a meaningful sentence description of the application and link to the live URL
 ![github image](https://git.generalassemb.ly/storage/user/3667/files/beae41ae-aaaa-11e7-8867-63958d376a0b)
 1.  [X] List technologies used
-1.  [ ] Document your planning and tell a story about your development process and problem-solving strategy.
-1.  [ ] List unsolved problems which would be fixed in future iterations.
-1.  [ ] Link to wireframes and user stories.
+1.  [X] Document your planning and tell a story about your development process and problem-solving strategy.
+1.  [X] List unsolved problems which would be fixed in future iterations.
+1.  [X] Link to wireframes and user stories.
 
 ### Technical Specifications
-1.  [ ] Use a custom game engine written by you.
-1.  [ ] Be a single-page application, no browser refresh.
-1.  [ ] Render a game board in the browser.
-1.  [ ] Switch turns between X and O (or whichever markers you select).  Tip:  Assume player X is the first player to start the game.
+1.  [X] Use a custom game engine written by you.
+1.  [X] Be a single-page application, no browser refresh.
+1.  [X] Render a game board in the browser.
+1.  [X] Switch turns between X and O (or whichever markers you select).  Tip:  Assume player X is the first player to start the game.
 1.  [ ] Visually display which side won if a player gets three in a row or show a draw if neither wins.
-1.  [ ] Support playing multiple games, one at a time.
-1.  [ ] Use jQuery for DOM manipulation and event handling.
-1.  [ ] Use AJAX for interacting with a provided API.
+1.  [X] Support playing multiple games, one at a time.
+1.  [X] Use jQuery for DOM manipulation and event handling.
+1.  [X] Use AJAX for interacting with a provided API.
 
 ### API Specifications
-1.  [ ]  Create new games on the server. (CREATE)
+1.  [X]  Create new games on the server. (CREATE)
 1.  [ ]  Update a game by storing new moves. (UPDATE)
 1.  [ ]  Visually display the results of retrieving game statistics, such as total games won by a user. (READ)
 1.  [ ]  Give feedback to the user after each action.
 
 ### Auth Specifications
-1.  [ ]  Signup with email, password, and password confirmation.
-1.  [ ]  Login with email and password.
-1.  [ ]  Logout when logged in.
-1.  [ ]  Change password with current and new password.
+1.  [X]  Signup with email, password, and password confirmation.
+1.  [X]  Login with email and password.
+1.  [X]  Logout when logged in.
+1.  [X]  Change password with current and new password.
 1.  [ ]  Signup and Signin must only be available to not signed in users.
 1.  [ ]  Logout and Change password must only be available to signed in users.
 1.  [ ]  Give feedback to the user after each action's success or failure.
