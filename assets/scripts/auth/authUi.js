@@ -5,19 +5,19 @@ const gameEvents = require('./temp')
 const onSignUpSuccess = function (data) {
   $('#message').text('Signed up successfully.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
+  $('#sign-up').reset()
 }
 
 const onSignUpFailure = function (error) {
-  $('#message').text('Signed up failed.')
+  $('#message').text('Signed up failed. Error is: ' + error)
   $('#message').css('background-color', 'red')
-  console.log('onSignUpFailure ran, Error returned is: ')
-  console.log(error)
+  $('#sign-up').reset()
 }
 
 const onSignInSuccess = function (data) {
   $('#message').text('Signed in successfully.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
-
+  $('#sign-in').reset()
   store.user = data.user
   gameEvents.onCreateGame()
 }
@@ -27,21 +27,21 @@ const onSignInFailure = function (error) {
   $('#message').css(['background-color', 'red'], ['color', 'white'])
   console.log('onSignInFailure ran, Error returned is: ')
   console.log(error)
-
+  $('#sign-in').reset()
 }
 
 const onChangePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
   console.log('onChangePasswordSuccess ran, Data returned is: ' + data)
-
-  // store.user = data.user
+  $('#change-password').reset()
 }
 
 const onChangePasswordFailure = function (error) {
   $('#message').text('Password change failed.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
   console.log('onChangePasswordFailure ran, Error returned is: ' + error)
+  $('#change-password').reset()
 }
 
 const onSignOutSuccess = function (data) {
