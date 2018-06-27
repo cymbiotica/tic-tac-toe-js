@@ -1,6 +1,7 @@
 // 'use strict'
 const store = require('../utility/userStore')
 const gameStore = require('../utility/gameStore')
+const gameEvents = require('../game/gameEvents')
 
 // const onSuccess = function (data) {
 //   $('#message').text(`${onSuccess.caller} has run successfully.`)
@@ -23,7 +24,8 @@ const onSignUpSuccess = function (data) {
 const onSignUpFailure = function (error) {
   $('#message').text('Signed up failed.')
   $('#message').css('background-color', 'red')
-  console.log('onSignUpFailure ran, Error returned is: ' + error)
+  console.log('onSignUpFailure ran, Error returned is: ')
+  console.log(error)
 }
 
 const onSignInSuccess = function (data) {
@@ -31,13 +33,15 @@ const onSignInSuccess = function (data) {
   $('#message').css(['background-color', 'red'], ['color', 'white'])
 
   store.user = data.user
-  gameStore.user = data.user
+  gameEvents.onCreateGame()
 }
 
 const onSignInFailure = function (error) {
   $('#message').text('Signed in failed.')
   $('#message').css(['background-color', 'red'], ['color', 'white'])
-  console.log('onSignInFailure ran, Error returned is: ' + error.user)
+  console.log('onSignInFailure ran, Error returned is: ')
+  console.log(error)
+
 }
 
 const onChangePasswordSuccess = function (data) {
