@@ -1,7 +1,5 @@
 'use strict'
 const Player = require('./Player')
-// const answers = require('./answers')
-// const winner = require('./winner')
 const board = require('./board')
 
 const winners = [] // array to hold winning combinations
@@ -48,11 +46,13 @@ const drawBoard = function () {
 }
 
 const handler = function (e) {
+  // needto disable click events once clicked === true
   if (currentPlayer === 0) {
     this.innerHTML = playerTokenX
     player1.cellsClicked.push(parseInt(this.dataset.index))
     player1.cellsClicked.sort(function (a, b) { return a - b })
     // update game here move this into a function after working.
+
     board.updateBoard(this)
   } else {
     this.innerHTML = playerTokenY
@@ -67,7 +67,6 @@ const handler = function (e) {
   if (isWin) {
     if (currentPlayer === 0) {
       player1.points++
-      debugger
       document.getElementsByClassName('playerOne')[0].innerText = player1.points
       $('.playerOne').html(player1.points)
     } else {

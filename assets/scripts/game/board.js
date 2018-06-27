@@ -1,7 +1,6 @@
-const gameEvents = require('./gameEvents.js')
-const gameApi = require('./gameApi')
+const gameEvents = require('../game/test/gameEvents')
 
-const updateBoard = function (cellClicked) {
+const updateBoard = function (cellClicked, gameStore) {
   const updateGameObj = {
     'game': {
       'cell': {
@@ -12,8 +11,6 @@ const updateBoard = function (cellClicked) {
     }
   }
   const jsonObj = JSON.stringify(updateGameObj)
-  console.log(gameApi)
-  console.log(gameEvents)
   gameEvents.onUpdateGame(jsonObj) // need to json stringify?
 }
 

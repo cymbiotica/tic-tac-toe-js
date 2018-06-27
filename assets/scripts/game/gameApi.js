@@ -33,7 +33,7 @@ const createGame = function () {
 }
 const showGame = function (id) {
   return $.ajax({
-    url: `${config.apiUrl}/games/${id}`,
+    url: `${config.apiUrl}/games/${gameStore.game.id}`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + userStore.user.token
@@ -42,8 +42,11 @@ const showGame = function (id) {
 }
 
 const updateGame = function (jsonObj) {
+  console.log(`data passed to updateGame :${jsonObj}`)
+  console.log(`gamestore:`)
+  console.log(gameStore)
   return $.ajax({
-    url: `${config.apiUrl}/games/${gameStore.id}`,
+    url: `${config.apiUrl}/games/${gameStore.game.id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + userStore.user.token
