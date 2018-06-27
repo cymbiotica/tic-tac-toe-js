@@ -1,20 +1,6 @@
 // 'use strict'
 const store = require('../utility/userStore')
-const gameStore = require('../utility/gameStore')
-const gameEvents = require('../game/gameEvents')
-
-// const onSuccess = function (data) {
-//   $('#message').text(`${onSuccess.caller} has run successfully.`)
-//   
-//   $('#message').css('background-color', 'green')
-//   console.log(`${onSuccess.caller} data returned = ${data}`)
-// }
-
-// const onFailure = function (error, callingMethod) {
-//   $('#message').text(`${callingMethod} failed.`)
-//   $('#message').css(['background-color', 'red'], ['color', 'white'])
-//   console.log(`${callingMethod} ran, Error returned is: ' + ${error}`)
-// }
+const gameEvents = require('./temp')
 
 const onSignUpSuccess = function (data) {
   $('#message').text('Signed up successfully.')
@@ -79,3 +65,15 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure
 }
+// const onSuccess = function (data) {
+//   $('#message').text(`${onSuccess.caller} has run successfully.`)
+//   
+//   $('#message').css('background-color', 'green')
+//   console.log(`${onSuccess.caller} data returned = ${data}`)
+// }
+
+// const onFailure = function (error, callingMethod) {
+//   $('#message').text(`${callingMethod} failed.`)
+//   $('#message').css(['background-color', 'red'], ['color', 'white'])
+//   console.log(`${callingMethod} ran, Error returned is: ' + ${error}`)
+// }

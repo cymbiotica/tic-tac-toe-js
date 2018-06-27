@@ -8,6 +8,7 @@ class Player {
     this.isCurrentPlayer = null
   }
 }
+
 module.exports = {
   Player
 }
