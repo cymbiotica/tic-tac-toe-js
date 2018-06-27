@@ -8,7 +8,7 @@ let currentPlayer = 0
 const player1 = new Player.Player('player1', 0)
 const player2 = new Player.Player('player2', 1)
 
-function loadAnswers () {
+function loadAnswers() {
   // arrays of winning combinations - straights and diangles.
   winners.push([1, 2, 3])
   winners.push([4, 5, 6])
@@ -19,7 +19,30 @@ function loadAnswers () {
   winners.push([1, 5, 9])
   winners.push([3, 5, 7])
 }
+const createScoreBoard = function () {
+  // create scoreboard
 
+  const gameBoard = document.getElementById('game-board')
+  const scoreBoard = document.createElement('section')
+  const player1ScoreHeading = document.createElement('p')
+  const player2ScoreHeading = document.createElement('p')
+  const playerOneScoreValue = document.createElement('div')
+  const playerTwoScoreValue = document.createElement('div')
+
+  player1ScoreHeading.innerHTML = 'Player One'
+  scoreBoard.appendChild(player1ScoreHeading)
+
+  playerOneScoreValue.classList.add('playerOne')
+  scoreBoard.appendChild(playerOneScoreValue)
+
+  player2ScoreHeading.innerHTML = 'Player Two'
+  scoreBoard.appendChild(player2ScoreHeading)
+
+  playerTwoScoreValue.classList.add('playerTwo')
+  scoreBoard.appendChild(playerTwoScoreValue)
+
+  gameBoard.appendChild(scoreBoard)
+}
 const drawBoard = function () {
   let move = 0
   // drawing our board
@@ -32,27 +55,30 @@ const drawBoard = function () {
   while (Parent.hasChildNodes()) {
     Parent.removeChild(Parent.firstChild)
   }
-
+  createScoreBoard()
   // draw our board to the page
   for (let column = 0; column < SIZE; column++) {
     const drawRow = document.createElement('tr')
 
     for (let row = 0; row < SIZE; row++) {
       const col = document.createElement('td')
-      col.id = counter
+      // col.id = counter
+      col.setAttribute('data-index', counter)
       col.innerHTML = '#'
 
       const handler = function (e) {
         if (currentPlayer === 0) {
           this.innerHTML = 'X'
-          player1.cellsClicked.push(parseInt(this.id))
-          // console.log(`Player 1 cells = ${player1.cellsClicked.length}`)
-          player1.cellsClicked.sort(function (a, b) { return a - b })
+          player1.cellsClicked.push(parseInt(this.dataset.index))
+          player1.cellsClicked.sort(function (a, b) {
+            return a - b
+          })
         } else {
           this.innerHTML = 'O'
-          player2.cellsClicked.push(parseInt(this.id))
-          // console.log(`Player 2 cells = ${player2.cellsClicked.length}`)
-          player2.cellsClicked.sort(function (a, b) { return a - b })
+          player2.cellsClicked.push(parseInt(this.dataset.index))
+          player2.cellsClicked.sort(function (a, b) {
+            return a - b
+          })
         }
 
         move++
@@ -61,11 +87,15 @@ const drawBoard = function () {
         if (isWin) {
           if (currentPlayer === 0) {
             player1.points++
+            $('.playerOne').html(player1.points)
           } else {
             player2.points++
+            $('.playerTwo').html(player2.points)
           }
-          $('#playerOne').html(player1.points)
-          $('#playerTwo').html(player2.points)
+          console.log(player1.points)
+          console.log(player2.points)
+          $('.playerOne').html(player1.points)
+          $('.playerTwo').html(player2.points)
 
           reset()
           drawBoard()
@@ -85,11 +115,10 @@ const drawBoard = function () {
 
     Parent.appendChild(drawRow)
   }
-
   loadAnswers()
 }
 
-function checkWinner () {
+function checkWinner() {
   // win condition
   let isWin = false
 
@@ -132,7 +161,7 @@ function checkWinner () {
   return isWin
 }
 
-function reset () {
+function reset() {
   currentPlayer = 0
   player1.cellsClicked = []
   player2.cellsClicked = []

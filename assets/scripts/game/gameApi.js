@@ -22,6 +22,7 @@ const indexGames = function (isGameOver) {
 // If the request is successful, the response will have an HTTP Status of 201 Created,
 // and the body will contain JSON of the created game with player_x set to the user calling create,
 const createGame = function () {
+  console.log(userStore)
   return $.ajax({
     url: `${config.apiUrl}/games/`,
     method: 'POST',
