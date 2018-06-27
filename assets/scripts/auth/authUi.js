@@ -5,7 +5,7 @@ const gameEvents = require('../game/gameEvents')
 
 // const onSuccess = function (data) {
 //   $('#message').text(`${onSuccess.caller} has run successfully.`)
-//   debugger
+//   
 //   $('#message').css('background-color', 'green')
 //   console.log(`${onSuccess.caller} data returned = ${data}`)
 // }

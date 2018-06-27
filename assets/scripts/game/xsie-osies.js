@@ -1,50 +1,20 @@
 'use strict'
 const Player = require('./Player')
+// const answers = require('./answers')
+// const winner = require('./winner')
+const board = require('./board')
 
-const SIZE = 3
 const winners = [] // array to hold winning combinations
+const SIZE = 3
+const playerTokenX = 'X'
+const playerTokenY = 'O'
 let currentPlayer = 0
+let move = 0
 
 const player1 = new Player.Player('player1', 0)
 const player2 = new Player.Player('player2', 1)
 
-function loadAnswers() {
-  // arrays of winning combinations - straights and diangles.
-  winners.push([1, 2, 3])
-  winners.push([4, 5, 6])
-  winners.push([7, 8, 9])
-  winners.push([1, 4, 7])
-  winners.push([2, 5, 8])
-  winners.push([3, 6, 9])
-  winners.push([1, 5, 9])
-  winners.push([3, 5, 7])
-}
-const createScoreBoard = function () {
-  // create scoreboard
-
-  const gameBoard = document.getElementById('game-board')
-  const scoreBoard = document.createElement('section')
-  const player1ScoreHeading = document.createElement('p')
-  const player2ScoreHeading = document.createElement('p')
-  const playerOneScoreValue = document.createElement('div')
-  const playerTwoScoreValue = document.createElement('div')
-
-  player1ScoreHeading.innerHTML = 'Player One'
-  scoreBoard.appendChild(player1ScoreHeading)
-
-  playerOneScoreValue.classList.add('playerOne')
-  scoreBoard.appendChild(playerOneScoreValue)
-
-  player2ScoreHeading.innerHTML = 'Player Two'
-  scoreBoard.appendChild(player2ScoreHeading)
-
-  playerTwoScoreValue.classList.add('playerTwo')
-  scoreBoard.appendChild(playerTwoScoreValue)
-
-  gameBoard.appendChild(scoreBoard)
-}
 const drawBoard = function () {
-  let move = 0
   // drawing our board
   const Parent = document.getElementById('game-board')
 
@@ -55,7 +25,7 @@ const drawBoard = function () {
   while (Parent.hasChildNodes()) {
     Parent.removeChild(Parent.firstChild)
   }
-  createScoreBoard()
+
   // draw our board to the page
   for (let column = 0; column < SIZE; column++) {
     const drawRow = document.createElement('tr')
@@ -66,48 +36,6 @@ const drawBoard = function () {
       col.setAttribute('data-index', counter)
       col.innerHTML = '#'
 
-      const handler = function (e) {
-        if (currentPlayer === 0) {
-          this.innerHTML = 'X'
-          player1.cellsClicked.push(parseInt(this.dataset.index))
-          player1.cellsClicked.sort(function (a, b) {
-            return a - b
-          })
-        } else {
-          this.innerHTML = 'O'
-          player2.cellsClicked.push(parseInt(this.dataset.index))
-          player2.cellsClicked.sort(function (a, b) {
-            return a - b
-          })
-        }
-
-        move++
-        const isWin = checkWinner()
-
-        if (isWin) {
-          if (currentPlayer === 0) {
-            player1.points++
-            $('.playerOne').html(player1.points)
-          } else {
-            player2.points++
-            $('.playerTwo').html(player2.points)
-          }
-          console.log(player1.points)
-          console.log(player2.points)
-          $('.playerOne').html(player1.points)
-          $('.playerTwo').html(player2.points)
-
-          reset()
-          drawBoard()
-        } else {
-          if (currentPlayer === 0) {
-            currentPlayer = 1
-          } else {
-            currentPlayer = 0
-          }
-        }
-      }
-
       col.addEventListener('click', handler)
       counter++
       drawRow.appendChild(col)
@@ -116,12 +44,50 @@ const drawBoard = function () {
     Parent.appendChild(drawRow)
   }
   loadAnswers()
+  board.createScoreBoard()
 }
 
-function checkWinner() {
+const handler = function (e) {
+  if (currentPlayer === 0) {
+    this.innerHTML = playerTokenX
+    player1.cellsClicked.push(parseInt(this.dataset.index))
+    player1.cellsClicked.sort(function (a, b) { return a - b })
+    // update game here move this into a function after working.
+    board.updateBoard(this)
+  } else {
+    this.innerHTML = playerTokenY
+    player2.cellsClicked.push(parseInt(this.dataset.index))
+    player2.cellsClicked.sort(function (a, b) { return a - b })
+    board.updateBoard(this)
+  }
+
+  move++
+  const isWin = checkWinner(player1, player2, currentPlayer)
+
+  if (isWin) {
+    if (currentPlayer === 0) {
+      player1.points++
+      debugger
+      document.getElementsByClassName('playerOne')[0].innerText = player1.points
+      $('.playerOne').html(player1.points)
+    } else {
+      player2.points++
+      $('.playerTwo').html(player2.points)
+    }
+    board.reset(player1, player2, currentPlayer)
+    drawBoard()
+  } else {
+    if (currentPlayer === 0) {
+      currentPlayer = 1
+    } else {
+      currentPlayer = 0
+    }
+  }
+}
+
+const checkWinner = function (player1, player2, currentPlayer) {
   // win condition
   let isWin = false
-
   // all placeholder for each players cellsClicked
   let playerSelections = []
 
@@ -161,12 +127,17 @@ function checkWinner() {
   return isWin
 }
 
-function reset() {
-  currentPlayer = 0
-  player1.cellsClicked = []
-  player2.cellsClicked = []
+const loadAnswers = function () {
+  // arrays of winning combinations - straights and diangles.
+  winners.push([1, 2, 3])
+  winners.push([4, 5, 6])
+  winners.push([7, 8, 9])
+  winners.push([1, 4, 7])
+  winners.push([2, 5, 8])
+  winners.push([3, 6, 9])
+  winners.push([1, 5, 9])
+  winners.push([3, 5, 7])
 }
-
 module.exports = {
   drawBoard
 }
