@@ -42,7 +42,7 @@ const drawBoard = function () {
     Parent.appendChild(drawRow)
   }
   loadAnswers()
-  board.createScoreBoard()
+  // board.createScoreBoard()
 }
 
 const handler = function (e) {
