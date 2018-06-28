@@ -39,7 +39,18 @@ td:hover
   // grid-template-rows: 10vw 30vw 10vw;
   grid-gap: 1em;
 }
+// .player1-tag {
+//   background-color: #f7339e;
+//   text-shadow: 3px 2px red;
+// }
 
+// .player2-tag {
+//   background-color: #4a0feb;
+//   text-shadow: 3px 2px red;
+// }
+.winner {
+  background-color: rgb(10, 243, 29)
+}
 .game-board {
 	display: grid;
 }

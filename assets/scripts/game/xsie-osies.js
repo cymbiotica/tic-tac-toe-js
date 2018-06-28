@@ -53,12 +53,12 @@ const handler = function (e) {
     player1.cellsClicked.sort(function (a, b) { return a - b })
     // update game here move this into a function after working.
 
-    board.updateBoard(this)
+    // board.updateBoard(this)
   } else {
     this.innerHTML = playerTokenY
     player2.cellsClicked.push(parseInt(this.dataset.index))
     player2.cellsClicked.sort(function (a, b) { return a - b })
-    board.updateBoard(this)
+    // board.updateBoard(this)
   }
 
   move++
@@ -67,11 +67,14 @@ const handler = function (e) {
   if (isWin) {
     if (currentPlayer === 0) {
       player1.points++
-      document.getElementsByClassName('playerOne')[0].innerText = player1.points
-      $('.playerOne').html(player1.points)
+      $('#player1').text(player1.points)
+      $('#player1').toggleClass('winner')
+      $('#player2').removeClass('winner')
     } else {
       player2.points++
-      $('.playerTwo').html(player2.points)
+      $('#player2').text(player2.points)
+      $('#player2').toggleClass('winner')
+      $('#player1').removeClass('winner')
     }
     board.reset(player1, player2, currentPlayer)
     drawBoard()
