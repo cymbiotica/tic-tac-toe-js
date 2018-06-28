@@ -53,12 +53,12 @@ const handler = function (e) {
     player1.cellsClicked.sort(function (a, b) { return a - b })
     // update game here move this into a function after working.
 
-    // board.updateBoard(this)
+    board.updateBoard(this)
   } else {
     this.innerHTML = playerTokenY
     player2.cellsClicked.push(parseInt(this.dataset.index))
     player2.cellsClicked.sort(function (a, b) { return a - b })
-    // board.updateBoard(this)
+    board.updateBoard(this)
   }
 
   move++

@@ -31,7 +31,7 @@ const createGame = function () {
     data: {}
   })
 }
-const showGame = function (id) {
+const showGame = function (sz) {
   return $.ajax({
     url: `${config.apiUrl}/games/${gameStore.game.id}`,
     method: 'GET',
@@ -42,9 +42,10 @@ const showGame = function (id) {
 }
 
 const updateGame = function (jsonObj) {
-  console.log(`data passed to updateGame :${jsonObj}`)
-  console.log(`gamestore:`)
-  console.log(gameStore)
+  // console.log(`data passed to updateGame :${jsonObj}`)
+  // console.log(`gamestore:`)
+  // console.log(gameStore)
+  // debugger
   return $.ajax({
     url: `${config.apiUrl}/games/${gameStore.game.id}`,
     method: 'PATCH',

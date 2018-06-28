@@ -10,8 +10,8 @@ const updateBoard = function (cellClicked) {
       'over': false
     }
   }
-  const jsonObj = JSON.stringify(updateGameObj)
-  gameEvents.onUpdateGame(jsonObj) // need to json stringify?
+  // const jsonObj = JSON.stringify(updateGameObj)
+  gameEvents.onUpdateGame(updateGameObj) // need to json stringify?
 }
 
 const createScoreBoard = function () {
