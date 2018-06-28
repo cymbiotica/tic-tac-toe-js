@@ -7,16 +7,16 @@ const resetForms = function () {
   document.getElementById('change-password').reset()
 }
 
-const onSignUpSuccess = function (data) {
+const onSignUpSuccess = function () {
   $('#sign-up-message').text('Signed up successfully.')
   $('#sign-up-message').css('background-color', 'green')
   resetForms()
   setTimeout(() => $('#sign-up-message').text(''), 3000)
 }
 
-const onSignUpFailure = function (error) {
-  $('#sign-in-message').text('Signed up failed. Error is: ' + error)
-  $('#sign-in-message').css('background-color', 'red')
+const onSignUpFailure = function () {
+  $('#sign-up-message').text('Signed up failed.')
+  $('#sign-up-message').css('background-color', 'red')
   resetForms()
   setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
