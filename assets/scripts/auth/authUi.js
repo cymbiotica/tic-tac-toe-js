@@ -1,57 +1,68 @@
 // 'use strict'
 const store = require('../utility/userStore')
 const gameEvents = require('./temp')
+const resetForms = function () {
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
+  document.getElementById('change-password').reset()
+}
 
 const onSignUpSuccess = function (data) {
-  $('#message').text('Signed up successfully.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
-  $('#sign-up').reset()
+  $('#sign-up-message').text('Signed up successfully.')
+  $('#sign-up-message').css('background-color', 'green')
+  resetForms()
+  setTimeout(() => $('#sign-up-message').text(''), 3000)
 }
 
 const onSignUpFailure = function (error) {
-  $('#message').text('Signed up failed. Error is: ' + error)
-  $('#message').css('background-color', 'red')
-  $('#sign-up').reset()
+  $('#sign-in-message').text('Signed up failed. Error is: ' + error)
+  $('#sign-in-message').css('background-color', 'red')
+  resetForms()
+  setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
 
 const onSignInSuccess = function (data) {
-  $('#message').text('Signed in successfully.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
-  $('#sign-in').reset()
+  $('#sign-in-message').text('Signed in successfully.')
+  $('#sign-in-message').css('background-color', 'green')
+  resetForms()
+  setTimeout(() => $('#sign-in-message').text(''), 3000)
   store.user = data.user
   gameEvents.onCreateGame()
 }
 
-const onSignInFailure = function (error) {
-  $('#message').text('Signed in failed.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
-  console.log('onSignInFailure ran, Error returned is: ')
-  console.log(error)
-  $('#sign-in').reset()
+const onSignInFailure = function () {
+  $('#sign-in-message').text('Signed in failed.')
+  $('#sign-in-message').css('background-color', 'red')
+  resetForms()
+  setTimeout(() => $('#sign-in-message').text(''), 3000)
 }
 
-const onChangePasswordSuccess = function (data) {
-  $('#message').text('Changed password successfully.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
-  console.log('onChangePasswordSuccess ran, Data returned is: ' + data)
-  $('#change-password').reset()
+const onChangePasswordSuccess = function () {
+  $('#change-password-message').text('Changed password successfully.')
+  $('#change-password-message').css('background-color', 'green')
+  resetForms()
+  setTimeout(() => $('#change-password-message').text(''), 3000)
 }
 
-const onChangePasswordFailure = function (error) {
-  $('#message').text('Password change failed.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
-  console.log('onChangePasswordFailure ran, Error returned is: ' + error)
-  $('#change-password').reset()
+const onChangePasswordFailure = function () {
+  $('#change-password-message').text('Password change failed.')
+  $('#change-password-message').css('background-color', 'red')
+  resetForms()
+  setTimeout(() => $('#change-password-message').text(''), 3000)
 }
 
-const onSignOutSuccess = function (data) {
-  $('#message').text('Signed out successfully.')
-  $('#message').css(['background-color', 'red'], ['color', 'white'])
+const onSignOutSuccess = function () {
+  $('#sign-out-message').text('Signed out successfully.')
+  $('#sign-out-message').css('background-color', 'green')
+  resetForms()
+  setTimeout(() => $('#sign-out-message').text(''), 3000)
 }
 
 const onSignOutFailure = function () {
-  $('#message').text('Signed out failed.')
-  $('#message').css('background-color', 'red')
+  $('#sign-out-message').text('Signed out failed.')
+  $('#sign-out-message').css('background-color', 'red')
+  setTimeout(() => $('#sign-out-message').text(''), 3000)
+  resetForms()
 }
 
 module.exports = {

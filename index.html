@@ -20,7 +20,7 @@
     <section class="admin">
       <form id="sign-up" class="border left">
         <fieldset>
-          <legend>Sign up</legend><p id="sign-in-message"></p>
+          <legend>Sign up</legend><p id="sign-up-message"></p>
           <input type="text" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
@@ -30,7 +30,7 @@
 
       <form id="sign-in" class="border left">
         <fieldset>
-          <legend>Sign In</legend>
+          <legend>Sign In</legend><p id="sign-in-message"></p>
           <input type="text" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="submit" value="Sign In">
@@ -39,7 +39,7 @@
 
       <form id="change-password" class="border left">
         <fieldset>
-          <legend>Change Password</legend>
+          <legend>Change Password</legend><p id="change-password-message"></p>
           <input type="password" name="passwords[old]" placeholder="Old Password">
           <input type="password" name="passwords[new]" placeholder="New Password">
           <input type="submit" value="Change Password">
@@ -48,7 +48,7 @@
 
       <form id="sign-out" class="border left">
         <fieldset>
-          <legend>Sign out</legend>
+          <legend>Sign out</legend><p id="sign-out-message"></p>
           <input type="submit" value="Sign Out">
         </fieldset>
       </form>
