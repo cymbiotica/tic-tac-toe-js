@@ -55,6 +55,7 @@ const onSignOutSuccess = function () {
   $('#sign-out-message').text('Signed out successfully.')
   $('#sign-out-message').css('background-color', 'green')
   resetForms()
+  $('#game-board').html('')
   setTimeout(() => $('#sign-out-message').text(''), 3000)
 }
 
