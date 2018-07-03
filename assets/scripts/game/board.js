@@ -1,4 +1,5 @@
 const gameEvents = require('../game/test/gameEvents')
+const newGame = require('../auth/temp')
 
 const updateBoard = function (cellClicked) {
   const updateGameObj = {
@@ -11,6 +12,7 @@ const updateBoard = function (cellClicked) {
     }
   }
   // const jsonObj = JSON.stringify(updateGameObj)
+  console.log(updateGameObj)
   gameEvents.onUpdateGame(updateGameObj) // need to json stringify?
 }
 
@@ -43,6 +45,8 @@ const reset = function (player1, player2, currentPlayer) {
   currentPlayer = 0
   player1.cellsClicked = []
   player2.cellsClicked = []
+  
+  newGame.onCreateGame()
 }
 
 module.exports = {

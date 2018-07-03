@@ -1,6 +1,7 @@
 'use strict'
 const Player = require('./Player')
 const board = require('./board')
+const gameEvents = require('../auth/temp')
 
 const winners = [] // array to hold winning combinations
 const SIZE = 3
@@ -46,18 +47,20 @@ const drawBoard = function () {
 }
 
 const handler = function (e) {
-  // needto disable click events once clicked === true
   if (currentPlayer === 0) {
     this.innerHTML = playerTokenX
     player1.cellsClicked.push(parseInt(this.dataset.index))
     player1.cellsClicked.sort(function (a, b) { return a - b })
     // update game here move this into a function after working.
+    
+    $(`td[data-index=${this.dataset.index}]`).addClass('disabled')
 
     board.updateBoard(this)
   } else {
     this.innerHTML = playerTokenY
     player2.cellsClicked.push(parseInt(this.dataset.index))
     player2.cellsClicked.sort(function (a, b) { return a - b })
+    $(`td[data-index=${this.dataset.index}]`).addClass('disabled')
     board.updateBoard(this)
   }
 
@@ -77,6 +80,7 @@ const handler = function (e) {
       $('#player1').removeClass('winner')
     }
     board.reset(player1, player2, currentPlayer)
+
     drawBoard()
   } else {
     if (currentPlayer === 0) {

@@ -28,6 +28,11 @@ const onSignInSuccess = function (data) {
   setTimeout(() => $('#sign-in-message').text(''), 3000)
   store.user = data.user
   gameEvents.onCreateGame()
+  // attempt to show change password and sign out once signed in
+  $('#change-password').toggleClass('hidden')
+  $('#sign-out').toggleClass('hidden')
+  $('#sign-up').toggleClass('hidden')
+  $('#sign-in').toggleClass('hidden')
 }
 
 const onSignInFailure = function () {
@@ -57,6 +62,10 @@ const onSignOutSuccess = function () {
   resetForms()
   $('#game-board').html('')
   setTimeout(() => $('#sign-out-message').text(''), 3000)
+  $('#sign-up').toggleClass('hidden')
+  $('#sign-in').toggleClass('hidden')
+  $('#change-password').toggleClass('hidden')
+  $('#sign-out').toggleClass('hidden')
 }
 
 const onSignOutFailure = function () {
