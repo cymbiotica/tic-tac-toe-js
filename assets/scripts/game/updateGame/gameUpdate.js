@@ -11,7 +11,7 @@ const onCreatNeweGame = function() {
             game.drawBoard()
         })
         .catch(function() {
-            $('#message').innerHTML('Could not locate game.')
+            $('#message').innerText('Could not locate game.')
         })
 }
 module.exports = {

@@ -13,23 +13,35 @@ const onCreateGame = function(event) {
             game.drawBoard()
         })
         .catch(function() {
-            $('sign-in-message').innerHTML('Login is required to create a new game.')
+            $('#sign-in-message').innerHTML('Login is required to create a new game.')
         }) // output login required
 }
 
-// const onUpdateGame = function(event) {
-//     event.preventDefault()
-//     debugger
-//     gameApi.updateGame(gameData)
-//         .then()
-//         .catch()
-// }
-
 const onGetGame = function() {
+    gameApi.showGame()
+        .then(function(data) {
+            const parent = document.getElementById('old-games')
+            const displayGame = document.createElement('div')
+            while (parent.hasChildNodes()) {
+                parent.removeChild(parent.firstChild)
+            }
+            displayGame.innerHTML = data.game.cells
+
+            parent.appendChild(displayGame)
+
+        })
+        .catch(function() {
+            $('#sign-in-message').innerHTML('Login is required to get old games.')
+        })
+}
+const onGetGames = function() {
     gameApi.indexGames()
         .then(function(data) {
             const parent = document.getElementById('old-games')
             const displayGame = document.createElement('div')
+            while (parent.hasChildNodes()) {
+                parent.removeChild(parent.firstChild)
+            }
             for (let i = 220; i < 250; i++) {
                 const displayGame = document.createElement('div')
                 displayGame.innerHTML = data.games[i].cells
@@ -44,5 +56,6 @@ const onGetGame = function() {
 
 module.exports = {
     onCreateGame,
-    onGetGame
+    onGetGame,
+    onGetGames
 }
