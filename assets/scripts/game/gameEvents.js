@@ -38,7 +38,6 @@ const onGetGames = function() {
     gameApi.indexGames()
         .then(function(data) {
             const parent = document.getElementById('old-games')
-            const displayGame = document.createElement('div')
             while (parent.hasChildNodes()) {
                 parent.removeChild(parent.firstChild)
             }
