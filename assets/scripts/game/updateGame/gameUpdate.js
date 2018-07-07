@@ -10,7 +10,9 @@ const onCreatNeweGame = function() {
             $('#newGame').toggleClass('hidden')
             game.drawBoard()
         })
-        .catch(() => console.log('Login needed.')) // output login required
+        .catch(function() {
+            $('#message').innerHTML('Could not locate game.')
+        })
 }
 module.exports = {
     onCreatNeweGame

@@ -12,7 +12,9 @@ const onCreateGame = function(event) {
             $('#newGame').toggleClass('hidden')
             game.drawBoard()
         })
-        .catch(() => console.log('Login needed.')) // output login required
+        .catch(function() {
+            $('sign-in-message').innerHTML('Login is required to create a new game.')
+        }) // output login required
 }
 
 // const onUpdateGame = function(event) {
@@ -33,11 +35,11 @@ const onGetGame = function() {
                 displayGame.innerHTML = data.games[i].cells
 
                 parent.appendChild(displayGame)
-
             }
-
         })
-        .catch(() => console.log('Could not find game.'))
+        .catch(function() {
+            $('#sign-in-message').innerHTML('Login is required to get old games.')
+        })
 }
 
 module.exports = {
