@@ -2,79 +2,86 @@
 <html>
 
 <head>
-  <title>Tic-Tac-Toe-JS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic-Tac-Toe-JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Do not add `link` tags-->
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <!-- Do not add `link` tags-->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- Do not add `script` tags-->
-  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <!-- Do not add `script` tags-->
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
 <body>
-  <header>Tic-Tac-Toe-JS</header>
-  <div id="message"></div>
-  <main class="main-content grid-container">
-    <section class="admin">
-      <form id="sign-up" class="border left">
-        <fieldset>
-          <legend>Sign up</legend><p id="sign-up-message"></p>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" value="Sign Up">
-        </fieldset>
-      </form>
+    <header>Tic-Tac-Toe-JS</header>
+    <div id="message"></div>
+    <main class="main-content grid-container">
+        <section class="admin">
+            <form id="sign-up" class="border left">
+                <fieldset>
+                    <legend>Sign up</legend>
+                    <p id="sign-up-message"></p>
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Password">
+                    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                    <input type="submit" value="Sign Up">
+                </fieldset>
+            </form>
 
-      <form id="sign-in" class="border left">
-        <fieldset>
-          <legend>Sign In</legend><p id="sign-in-message"></p>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" value="Sign In">
-        </fieldset>
-      </form>
+            <form id="sign-in" class="border left">
+                <fieldset>
+                    <legend>Sign In</legend>
+                    <p id="sign-in-message"></p>
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Password">
+                    <input type="submit" value="Sign In">
+                </fieldset>
+            </form>
 
-      <form id="change-password" class="border left hidden">
-        <fieldset>
-          <legend>Change Password</legend><p id="change-password-message"></p>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change Password">
-        </fieldset>
-      </form>
+            <form id="change-password" class="border left hidden">
+                <fieldset>
+                    <legend>Change Password</legend>
+                    <p id="change-password-message"></p>
+                    <input type="password" name="passwords[old]" placeholder="Old Password">
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <input type="submit" value="Change Password">
+                </fieldset>
+            </form>
 
-      <form id="sign-out" class="border left hidden">
-        <fieldset>
-          <legend>Sign out</legend><p id="sign-out-message"></p>
-          <input type="submit" value="Sign Out">
-        </fieldset>
-      </form>
-    </section>
-    <section class="game">
-      <aside class="information">
+            <form id="sign-out" class="border left hidden">
+                <fieldset>
+                    <legend>Sign out</legend>
+                    <p id="sign-out-message"></p>
+                    <input type="submit" value="Sign Out">
+                </fieldset>
+            </form>
+        </section>
+        <section class="game">
+            <!-- <aside class="information">
         <p class="instruction">
           Instructions here
         </p>
         <p class="history">
           Wiki stuff here
         </p>
-      </aside>
+      </aside> -->
 
-      <section id="score">
-        <div class="player1-tag">Player One</div><div id="player1"></div>
-        <div class="player2-tag">Player Two</div><div id="player2"></div>
-      </section>
-      <section id="game-board" class="border">
+            <section id="score">
+                <input type="submit" id='newGame' value="New Game" class="hidden">
+                <div class="player1-tag">Player One</div>
+                <div id="player1"></div>
+                <div class="player2-tag">Player Two</div>
+                <div id="player2"></div>
+            </section>
+            <section id="game-board" class="border">
 
-      </section>
-    </section>
-  </main>
-  <footer id="footer">
-    Created by Terry Esposito &C2018
-  </footer>
+            </section>
+        </section>
+    </main>
+    <footer id="footer">
+        Created by Terry Esposito &C2018
+    </footer>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 'use strict'
-require('./auth/auth')
-require('./game/game')
-$(() => {
-})
+require('../scripts/auth/auth.js')
+require('../scripts/game/game')
+$(() => {})
