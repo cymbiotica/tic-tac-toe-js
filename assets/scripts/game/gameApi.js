@@ -3,11 +3,11 @@ const config = require('../utility/config')
 const userStore = require('../utility/userStore')
 const gameStore = require('../utility/gameStore')
 
-const indexGames = function(isGameOver) {
-    let gameOver
-    typeof isGameOver === 'undefined' ? gameOver = '' : gameOver = isGameOver
+const indexGames = function() {
+    // let gameOver
+    // typeof isGameOver === 'undefined' ? gameOver = '' : gameOver = isGameOver
     return $.ajax({
-        url: `${config.apiUrl}/games/${gameOver}`,
+        url: `${config.apiUrl}/games/`,
         method: 'GET',
         headers: {
             Authorization: 'Token token=' + userStore.user.token

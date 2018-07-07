@@ -24,8 +24,19 @@ const onCreateGame = function(event) {
 // }
 
 const onGetGame = function() {
-    gameApi.showGame()
-        .then(() => console.log(gameStore))
+    gameApi.indexGames()
+        .then(function(data) {
+            const parent = document.getElementById('old-games')
+            const displayGame = document.createElement('div')
+            for (let i = 220; i < 250; i++) {
+                const displayGame = document.createElement('div')
+                displayGame.innerHTML = data.games[i].cells
+
+                parent.appendChild(displayGame)
+
+            }
+
+        })
         .catch(() => console.log('Could not find game.'))
 }
 

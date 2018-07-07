@@ -143,6 +143,8 @@ const loadAnswers = function() {
     winners.push([1, 5, 9])
     winners.push([3, 5, 7])
 }
+
+
 module.exports = {
     drawBoard
 }
