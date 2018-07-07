@@ -13,7 +13,7 @@ const onCreateGame = function(event) {
             game.drawBoard()
         })
         .catch(function() {
-            $('#sign-in-message').innerHTML('Login is required to create a new game.')
+            $('#message').innerHTML('Login is required to create a new game.')
         }) // output login required
 }
 
@@ -31,7 +31,7 @@ const onGetGame = function() {
 
         })
         .catch(function() {
-            $('#sign-in-message').innerHTML('Login is required to get old games.')
+            $('#message').innerHTML('Login is required to get old games.')
         })
 }
 const onGetGames = function() {
@@ -49,7 +49,7 @@ const onGetGames = function() {
             }
         })
         .catch(function() {
-            $('#sign-in-message').innerHTML('Login is required to get old games.')
+            $('#message').innerHTML('Login is required to get old games.')
         })
 }
 
