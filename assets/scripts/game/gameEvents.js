@@ -9,13 +9,14 @@ const onCreateGame = function(event) {
     gameApi.createGame()
         .then(function(data) {
             gameStore.game = data.game
-            gameStore.lastGame = data.game
+
             $('#newGame').toggleClass('hidden')
                 // game.drawBoard()
         })
         .catch(function() {
             $('#message').innerHTML('Login is required to create a new game.')
         })
+    gameStore.lastGame = data.game
 }
 
 const onGetGame = function() {
