@@ -11,16 +11,15 @@ const onCreateGame = function(event) {
             gameStore.game = data.game
 
             $('#newGame').toggleClass('hidden')
-                // game.drawBoard()
+            game.drawBoard()
         })
         .catch(function() {
             $('#message').innerHTML('Login is required to create a new game.')
         })
-    gameStore.lastGame = data.game
 }
 
 const onGetGame = function() {
-    debugger
+
     gameApi.showGame()
         .then(function() {
             const parent = document.getElementById('old-games')
@@ -28,7 +27,7 @@ const onGetGame = function() {
             while (parent.hasChildNodes()) {
                 parent.removeChild(parent.firstChild)
             }
-            debugger
+
             displayGame.innerHTML = gameStore.lastGame.cells
 
             parent.appendChild(displayGame)

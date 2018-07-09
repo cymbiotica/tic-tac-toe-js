@@ -8,7 +8,7 @@ const onCreatNeweGame = function() {
         .then(function(data) {
             gameStore.game = data.game
             $('#newGame').toggleClass('hidden')
-                // game.drawBoard()
+            game.drawBoard()
         })
         .catch(function() {
             $('#message').innerText('Could not locate game.')
