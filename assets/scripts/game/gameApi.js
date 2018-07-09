@@ -26,8 +26,9 @@ const createGame = function() {
     })
 }
 const showGame = function(sz) {
+    debugger
     return $.ajax({
-        url: `${config.apiUrl}/games/${gameStore.game.id}`,
+        url: `${config.apiUrl}/games/${gameStore.oldGame.id}`,
         method: 'GET',
         headers: {
             Authorization: 'Token token=' + userStore.user.token
@@ -52,3 +53,4 @@ module.exports = {
     showGame,
     updateGame
 }
+G

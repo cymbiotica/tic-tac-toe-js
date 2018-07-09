@@ -12,38 +12,38 @@ let move = 0
 const player1 = new Player.Player('player1', 0)
 const player2 = new Player.Player('player2', 1)
 
-const drawBoard = function() {
-    // drawing our board
-    const Parent = document.getElementById('game-board')
+// const drawBoard = function() {
+//     // drawing our board
+//     const Parent = document.getElementById('game-board')
 
-    // iterator
-    let counter = 1
+//     // iterator
+//     let counter = 1
 
-    // clearboard
-    while (Parent.hasChildNodes()) {
-        Parent.removeChild(Parent.firstChild)
-    }
+//     // clearboard
+//     while (Parent.hasChildNodes()) {
+//         Parent.removeChild(Parent.firstChild)
+//     }
 
-    // draw our board to the page
-    for (let column = 0; column < SIZE; column++) {
-        const drawRow = document.createElement('tr')
+//     // draw our board to the page
+//     for (let column = 0; column < SIZE; column++) {
+//         const drawRow = document.createElement('tr')
 
-        for (let row = 0; row < SIZE; row++) {
-            const col = document.createElement('td')
-                // col.id = counter
-            col.setAttribute('data-index', counter)
-            col.innerHTML = '#'
+//         for (let row = 0; row < SIZE; row++) {
+//             const col = document.createElement('td')
+//                 // col.id = counter
+//             col.setAttribute('data-index', counter)
+//             col.innerHTML = '#'
 
-            col.addEventListener('click', handler)
-            counter++
-            drawRow.appendChild(col)
-        }
+//             col.addEventListener('click', handler)
+//             counter++
+//             drawRow.appendChild(col)
+//         }
 
-        Parent.appendChild(drawRow)
-    }
-    loadAnswers()
-        // board.createScoreBoard()
-}
+//         Parent.appendChild(drawRow)
+//     }
+//     loadAnswers()
+//         // board.createScoreBoard()
+// }
 
 const handler = function(e) {
     if (currentPlayer === 0) {
@@ -80,7 +80,7 @@ const handler = function(e) {
         }
         board.reset(player1, player2, currentPlayer)
 
-        drawBoard()
+        // drawBoard()
     } else {
         if (currentPlayer === 0) {
             currentPlayer = 1

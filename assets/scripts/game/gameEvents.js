@@ -9,23 +9,26 @@ const onCreateGame = function(event) {
     gameApi.createGame()
         .then(function(data) {
             gameStore.game = data.game
+            gameStore.lastGame = data.game
             $('#newGame').toggleClass('hidden')
-            game.drawBoard()
+                // game.drawBoard()
         })
         .catch(function() {
             $('#message').innerHTML('Login is required to create a new game.')
-        }) // output login required
+        })
 }
 
 const onGetGame = function() {
+    debugger
     gameApi.showGame()
-        .then(function(data) {
+        .then(function() {
             const parent = document.getElementById('old-games')
             const displayGame = document.createElement('div')
             while (parent.hasChildNodes()) {
                 parent.removeChild(parent.firstChild)
             }
-            displayGame.innerHTML = data.game.cells
+            debugger
+            displayGame.innerHTML = gameStore.lastGame.cells
 
             parent.appendChild(displayGame)
 

@@ -44,7 +44,7 @@ const reset = function(player1, player2, currentPlayer) {
     currentPlayer = 0
     player1.cellsClicked = []
     player2.cellsClicked = []
-
+    debugger
     gameEvents.onCreatNeweGame()
 }
 
